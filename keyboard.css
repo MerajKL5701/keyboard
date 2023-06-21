@@ -131,15 +131,17 @@
          translate:100px 0px;
     }
 
-@media screen and (max-width:3000px) {
- 
+@media screen and (max-width:500px) {
+    *{
+        /* scale: 0.5 0.5; */
+    }
     .key{
         box-shadow: 5px 5px 5px black,5px 5px 5px rgba(0, 0, 0,1);
-
+        
     }
     .key.highlighted{
         box-shadow: 2px 2px 2px black,2px 2px 2px rgba(0, 0, 0,1);
-
+        
     }
     .timer{
         font-size: 75px;
@@ -151,12 +153,13 @@
         font-size: 40px;
     }
     .keyboard{
+        scale: 0.5 0.5;
         /* height: 10px; */
         /* background-color: silver; */
         bottom: 100px;
         width: 300px;
         grid-gap: 10px;
-        transform: scale(0.8) rotateX(0deg) translateX(-100%);
+        transform: rotateX(0deg) translateX(-100%);
     }
 
     #checker{
