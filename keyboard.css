@@ -37,7 +37,7 @@
 #checker{
     font-size:100px ;
     position: absolute;
-    top: 40%;
+    top: 35%;
     width: 100%;
     text-align: center;
 }
@@ -78,7 +78,7 @@
     aspect-ratio: 1/1;
     font-size: 100px;
     text-align: center;
-    top: 30%;
+    top: 20%;
     right: 50%;
     transition: 500ms;
     position: absolute;
@@ -151,9 +151,6 @@
         font-size: 40px;
         top: 33%;
     }
-}
-.WPM{
-    font-size: 100px;position: absolute;top: 1px;
 }
 
 

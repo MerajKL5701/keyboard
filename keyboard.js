@@ -16,7 +16,6 @@ const audioElement = document.getElementsByClassName("audio")[0];
 audio[0].addEventListener('loadedmetadata', () => {
   const durationInSeconds = audio[0].duration;
   const durationInMilliseconds = durationInSeconds ;
-  console.log(`Audio duration: ${durationInMilliseconds}ms`);
 });
 let Left = 0;
 const A_wordsArray = [
@@ -1509,10 +1508,8 @@ let  word_array = [
 for(i = 0;i < A_wordsArray.length;i++){
   RandText.push(A_wordsArray[i])
 }
-console.log(A_wordsArray.length)
 let ms = 0;
 // text.style.opacity = "0";
-console.log(key.length)
 
 const Button = document.getElementsByClassName("key");
 for (let i = 0; i < Button.length; i++) {
@@ -1528,6 +1525,7 @@ for (let i = 0; i < Button.length; i++) {
 // text.focus();
 window.addEventListener("keydown", ((e) => {
     // Accurate.style.opacity = "0"
+    if (e.keyCode <= 90 && e.keyCode >= 60)
     text.focus();
 
    if (startSupport === 1) {  
@@ -1553,7 +1551,6 @@ function checkInput() {
   // text.value = "";
   const Textvalue = text.value.toUpperCase();
   Right++
-  console.log("right " + Right)
   
   const checker = document.getElementById("checker");
   if (Textvalue !== checker.innerHTML.charAt(0))
@@ -1563,9 +1560,7 @@ function checkInput() {
       checker.classList.remove("error")
     },100)
     beep.play()
-    console.log("Beep " + Textvalue)
     Left++;
-    console.log("Left " + Left)
   
     
     
@@ -1596,7 +1591,6 @@ function checkInput() {
     let kakashi = []
     for (i = 1;i < 20;i++){
       kakashi.push(i)
-      console.log("kakashi senpai")
     }
     let naruto = []
     for(i = 300;i<600;i++){
@@ -1612,7 +1606,6 @@ function checkInput() {
       sakuraTose = sakura[randomIndexZ] * negative[negativeIndex] 
     
    
-    console.log("SakuraTOse" + sakuraTose)
     let sasuke = []
     for(j = -300; j < 100;j++){
       sasuke.push(j)
@@ -1623,19 +1616,17 @@ function checkInput() {
     let randomIndexU = Math.floor(Math.floor(randomIndexY/kakashi.length )) 
     let sasukeTose = sasuke[randomIndexY]
     let kakashiTose = kakashi[randomIndexU] 
-    console.log(kakashiTose+ "kakashiTose")
     // randomly generating an naruto
-    // console.log(RandomIndexX)
     let animaon = document.createElement("div");
     animaon.setAttribute("class","Animate");
     container.appendChild(animaon);
     const Animate = document.getElementsByClassName("Animate")[AnimateSupport]
+    Animate[10]
     Animate.innerHTML = checker.innerHTML.charAt(0);
-
     setTimeout(() => {
       
       // Animate.style.translate = narutoTose + "% -"+ 200 + "% "
-      Animate.style.translate = narutoTose + "% "+ sasukeTose+ "% "
+      Animate.style.translate = narutoTose + "% "+ sasukeTose + "% "
       Animate.style.transform = "perspective(5000px) rotateY(" + sakuraTose  + "deg)"
       +  "rotateX(" + kakashiTose  + "deg)"
     }, 100);
@@ -1643,6 +1634,7 @@ function checkInput() {
       // Animate.style.translate = "600% -500%"
       Animate.style.translate = (narutoTose * 1.2) + "%" + 500 + "% "
       Animate.style.opacity = "0"
+      
     }, 500)
    
    
@@ -1665,7 +1657,6 @@ function checkInput() {
     }
     function KeyPress(){
       for (let i = 0; i < Button.length; i++) {
-        // console.log(i);
         const Textvalue = text.value.toUpperCase();
         if (Textvalue === Button[i].innerHTML.trim()) {
           Button[i].classList.add("highlighted");
@@ -1698,7 +1689,6 @@ function checkInput() {
         seconds = "0" + seconds
       }
       speedy()
-      console.log(minutes + " : " + seconds)
       ss.innerHTML = seconds;
       mm.innerHTML = minutes;
     }
@@ -1706,13 +1696,11 @@ function checkInput() {
         let idiot = 100 -(Left/Right) * 100
 
         Accurate.innerHTML = idiot.toFixed(2) + "%"
-        console.log("Accuracy"+  idiot + "%" )
       } 
       function speedy(){
         if (minutes === 0){
           minutes = 1
         }
         let WPMSpeed  = SpeedSupport / minutes 
-        console.log( "WPMSpeed" + WPMSpeed)
         WPM.innerHTML = WPMSpeed
       }
