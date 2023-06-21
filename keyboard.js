@@ -54,7 +54,7 @@ text.addEventListener("input", function () {
   setTimeout(() => {
     checkInput();
     scorer()
-  }, 0);
+  }, 1);
   
 });
 function checkInput() {
@@ -185,7 +185,6 @@ function checkInput() {
     }
     function audioPlay(e){
       audio[e].play();
-      
     }
     function timeCounter(){
       if (ss.innerHTML < 59){
