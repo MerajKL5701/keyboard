@@ -1,0 +1,303 @@
+*{
+    padding: 0;margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    /* outline: 1px black solid; */
+}
+:root{
+
+    --KeyNumber: 1;
+}
+
+.container{
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-position: left;
+    background: url("R.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    place-items: center;
+}
+.keyboard{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-gap: 15px;
+    /* width: 100%; */
+    height: 300px;
+    position: absolute;
+    bottom: 50px;
+    /* bottom: 100px; */
+    grid-template-rows: repeat(3,1fr);
+    
+    /* overflow: hidden; */
+    transform: perspective(5000px) rotateX(40deg) translateX(10%);
+}
+#checker{
+    font-size:100px ;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+.error{
+    color: red;
+    /* opacity: 0.4; */
+
+
+}
+#text{
+    height: 0px;width: 0px;
+    opacity: 0;
+}
+.key {
+    position: relative;
+    cursor: pointer;
+    font-size: 50px;
+    color: hsl(180, 100%, 10%);
+    text-align: center;
+    aspect-ratio: 1/1;
+    display: block;
+    height: 80px;
+    /* padding: ; */
+    /* opacity: ; */
+    z-index: 100;
+    background-color: silver;
+    transform-style: preserve-3d; /* enable 3D transforms */
+    transition: 235 box-shadow,235 background-color;
+    box-shadow: 0 9px 0 black,0px 9px 25px rgba(0, 0, 0, .7);
+  }
+  .key.highlighted{
+    background-color: hsl(0, 0%, 60%);
+    box-shadow: 0 3px 0 black, 0px 3px 6px rgba(0, 0, 0, .7);
+
+  }
+  .Animate{
+    height: 100px;
+    aspect-ratio: 1/1;
+    font-size: 100px;
+    text-align: center;
+    top: 30%;
+    right: 50%;
+    transition: 500ms;
+    position: absolute;
+    /* transform: perspective(5000px) rotateY(40deg); */
+  }
+  .Up {
+    background-color: black;
+}
+.Down{
+      translate: 500% 200%;
+  }
+.buttons{
+    background-color: hsla(0, 0%, 50%,0.4);
+    height: 100px;
+    width: 300px;
+    position: absolute;
+    top: 1px;
+    right: 50px;
+    border-radius: 0px 0px 30px 30px;
+}
+
+.button{
+    height: 50px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background-color: red;
+}
+  .key:hover{
+    /* transform: scaleY(0.9); */
+  }
+  /* .key::after {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    height: 120px;
+    aspect-ratio: 1/1;
+    content: "";
+    background-color: black;
+    transform: translateZ(-10px)} */
+    .support{
+        font-size: 100px;
+    }
+    
+    .Second{
+        translate:50px 0px;
+    }
+    .Third{
+         translate:100px 0px;
+    }
+
+@media screen and (max-width:720px) {
+    .timer{
+        font-size: 75px;
+        top: 200px;
+        right: auto;
+    }
+    .Animate{
+        height: 40px;
+        font-size: 40px;
+    }
+    .keyboard{
+        /* height: 10px; */
+        /* background-color: silver; */
+        bottom: 100px;
+        transform: scale(0.68) rotateX(0deg) translateX(0px);
+    }
+    #checker{
+        font-size: 40px;
+        top: 33%;
+    }
+}
+.WPM{
+    font-size: 100px;position: absolute;top: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Q {
+    grid-row: 1;
+    grid-column: 1/2;
+}
+.W {
+    grid-row: 1;
+    grid-column: 2/3;
+}
+.E {
+    grid-row: 1;
+    grid-column: 3/4;
+}
+.R {
+    grid-row: 1;
+    grid-column: 4/5;
+}
+.T {
+    grid-row: 1;
+    grid-column: 5/6;
+}
+.Y {
+    grid-row: 1;
+    grid-column: 6/7;
+}
+.U {
+    grid-row: 1;
+    grid-column: 7/8;
+}
+.I {
+    grid-row: 1;
+    grid-column: 8/9;
+}
+.O {
+    grid-row: 1;
+    grid-column: 9/10;
+}
+.P{
+    grid-column: 10/11;
+    grid-row: 1;
+}
+.A{
+    grid-column: 1/2;
+    grid-row: 2;
+}
+.S{
+    grid-row: 2;
+    grid-column: 2/3;
+}
+.D{
+    grid-row: 2;
+    grid-column: 3/4;
+}
+.F{
+    grid-row: 2;
+    grid-column: 4/5;
+}
+.G{
+    grid-row: 2;
+    grid-column: 5/6;
+}
+.H{
+    grid-row: 2;
+    grid-column: 6/7;
+}
+.J{
+    grid-row: 2;
+    grid-column: 7/8;
+}
+.K{
+    grid-row: 2;
+    grid-column: 8/9;
+}
+.L{
+    grid-row: 2;
+    grid-column: 9/10;
+}
+.Z{
+    grid-row: 3;
+    grid-column: 1/2;
+}
+.Z{
+    grid-row: 3;
+    grid-column: 1/2;
+}
+.X{
+    grid-row: 3;
+    grid-column: 2/3;
+}
+.C{
+    grid-row: 3;
+    grid-column: 3/4;
+}
+.V{
+    grid-row: 3;
+    grid-column: 4/5;
+}
+.B{
+    grid-row: 3;
+    grid-column: 5/6;
+}
+.N{
+    grid-row: 3;
+    grid-column: 6/7;
+}
+.M{
+    grid-row: 3;
+    grid-column: 7/8;
+}
