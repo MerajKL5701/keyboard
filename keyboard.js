@@ -213,9 +213,9 @@ function checkInput() {
         
       } 
       function speedy(){
-        // if (minutes === 0){
-        //   // minutes = 1
-        // }
-        // let WPMSpeed  =  charIndex
+        if (minutes === 0){
+          minutes = 1
+        }
+        let WPMSpeed  =  charIndex
        
       }

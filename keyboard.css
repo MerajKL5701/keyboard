@@ -201,6 +201,9 @@ nav{
     text-align: center;
     color: silver;
 }
+.nothing{
+    display: none;
+}
 .volumeRange{
     /* rotate: 90deg; */
     width: 400px;
