@@ -72,7 +72,7 @@
   .key.highlighted{
     background-color: hsl(0, 0%, 60%);
     box-shadow: 0 3px 0 black, 0px 3px 6px rgba(0, 0, 0, .7);
-
+    opacity: 0;
   }
   .Animate{
     height: 100px;
@@ -178,6 +178,7 @@ nav{
     bottom: 1px;
 
 }
+
 .Accurate{
     font-size: 50px;
     color: silver;
