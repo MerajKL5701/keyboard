@@ -16,7 +16,7 @@ const ss = document.getElementsByClassName("ss")[0]
 let Right = 0;
 const audioElement = document.getElementsByClassName("audio")[0];
 let Left = 0;
-
+console.log("kljaldknblkm knfklmbkn klmfdbkn kmkfnbklm knblkm klnkfmb kln ")
 let RandText = [
   "y","0", "kitagawa","Tiger","naruto","luffy","erenyeager", "yep"
 ];
