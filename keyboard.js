@@ -211,8 +211,3 @@ function checkInput() {
         Accurate.innerHTML = idiot.toFixed(2) + "%"
         
       } 
-      function speedy(){
-    
-        let WPMSpeed  =  charIndex
-       
-      }
