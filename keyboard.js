@@ -6,8 +6,10 @@ const beep = document.getElementsByClassName("beep")[0]
 const container = document.getElementsByClassName("container")[0]
 const mm = document.getElementsByClassName("mm")[0]
 const WPM = document.getElementsByClassName("WPM")[0]
+const volumeRange = document.getElementsByClassName("volumeRange")[0]
 let     startSupport = 1;
 let minutes = 0;
+let charIndex = 0;
 let SpeedSupport = 0;
 let seconds = 0;
 const ss = document.getElementsByClassName("ss")[0]
@@ -16,7 +18,7 @@ const audioElement = document.getElementsByClassName("audio")[0];
 let Left = 0;
 
 let RandText = [
-  "y","0", "kitagawa","Tiger"
+  "y","0", "kitagawa","Tiger","naruto","luffy","erenyeager", "yep"
 ];
 
 
@@ -71,6 +73,7 @@ function checkInput() {
     setTimeout(() => {
       checker.classList.remove("error")
     },100)
+    beep.volume = volumeRange.value / 100
     beep.play()
     Left++;
   
@@ -85,9 +88,10 @@ function checkInput() {
 
     if (Textvalue === checker.innerHTML.charAt(0)) {
  
-      animator()
       // prompt("yes");
-    
+      
+      animator()
+      charIndex++
       checker.innerHTML = checker.innerHTML.slice(1);
     }
  
@@ -119,15 +123,13 @@ function checkInput() {
     
    
     let sasuke = []
-    for(j = -300; j < 100;j++){
+    for(j = -200; j < 100;j++){
       sasuke.push(j)
     }
-
     // let randomIndexY = 10
     let randomIndexY = Math.floor(Math.random() * sasuke.length)
     let randomIndexU = Math.floor(Math.floor(randomIndexY/kakashi.length )) 
     let sasukeTose = sasuke[randomIndexY]
-    let kakashiTose = kakashi[randomIndexU] 
     // randomly generating an naruto
     let animaon = document.createElement("div");
     animaon.setAttribute("class","Animate");
@@ -140,7 +142,6 @@ function checkInput() {
       // Animate.style.translate = narutoTose + "% -"+ 200 + "% "
       Animate.style.translate = narutoTose + "% "+ sasukeTose + "% "
       Animate.style.transform = "perspective(5000px) rotateY(" + sakuraTose  + "deg)"
-      +  "rotateX(" + kakashiTose  + "deg)"
     }, 100);
     setTimeout(()=>{
       // Animate.style.translate = "600% -500%"
@@ -184,10 +185,11 @@ function checkInput() {
       }
     }
     function audioPlay(e){
+      audio[e].volume = volumeRange.value / 100
       audio[e].play();
     }
     function timeCounter(){
-      if (ss.innerHTML < 59){
+      if (seconds < 59){
 
         seconds++;
       }
@@ -202,16 +204,18 @@ function checkInput() {
       speedy()
       ss.innerHTML = seconds;
       mm.innerHTML = minutes;
+      // console.log()
     }
       function scorer(){
         let idiot = 100 -(Left/Right) * 100
 
         Accurate.innerHTML = idiot.toFixed(2) + "%"
+        
       } 
       function speedy(){
-        if (minutes === 0){
-          minutes = 1
-        }
-        let WPMSpeed  = SpeedSupport / minutes 
-        WPM.innerHTML = WPMSpeed
+        // if (minutes === 0){
+        //   // minutes = 1
+        // }
+        // let WPMSpeed  =  charIndex
+       
       }
