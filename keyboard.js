@@ -9,9 +9,11 @@ const WPM = document.getElementsByClassName("WPM")[0]
 const volumeRange = document.getElementsByClassName("volumeRange")[0]
 let     startSupport = 1;
 let minutes = 0;
+let WPMS = []
 let charIndex = 0;
 let SpeedSupport = 0;
 let seconds = 0;
+let pureSeconds = 0;
 const ss = document.getElementsByClassName("ss")[0]
 let Right = 0;
 const audioElement = document.getElementsByClassName("audio")[0];
@@ -43,6 +45,9 @@ window.addEventListener("keydown", ((e) => {
 
    if (startSupport === 1) {  
         setInterval(timeCounter,1000)
+        setInterval(() => {
+          pureSeconds++
+        }, 1);
       }    
   startSupport = 2
 
@@ -81,7 +86,8 @@ function checkInput() {
   }
   if (Textvalue === checker.innerHTML){
     CheckerGonnaCheck();
-    
+    speedChecker2()
+
     SpeedSupport++
     } 
 
@@ -188,6 +194,8 @@ function checkInput() {
       audio[e].play();
     }
     function timeCounter(){
+      
+
       if (seconds < 59){
 
         seconds++;
@@ -200,10 +208,26 @@ function checkInput() {
       if (seconds < 10){
         seconds = "0" + seconds
       }
-      speedy()
+      // speedy()
       ss.innerHTML = seconds;
       mm.innerHTML = minutes;
       // console.log()
+    }
+    // temp()
+   
+    function speedChecker2(){
+     
+      WPMS.push(pureSeconds / 100 )
+      console.log(WPMS)
+      let speedster = 0
+      for ( let loop = 0;loop < WPMS.length;loop++){
+        speedster = speedster + WPMS[loop]
+      }
+      speedster = speedster / WPMS.length 
+      speedster = 60 / speedster
+      console.log("SUM " + pureSeconds )
+      pureSeconds = 0;
+      WPM.innerHTML = Math.floor(speedster)
     }
       function scorer(){
         let idiot = 100 -(Left/Right) * 100
@@ -211,3 +235,4 @@ function checkInput() {
         Accurate.innerHTML = idiot.toFixed(2) + "%"
         
       } 
+    
