@@ -23,6 +23,7 @@
     width: 100%;
     background-position: left;
     background: url("R.jpg");
+    background-color: green;
     background-size: cover;
     background-repeat: no-repeat;
     display: grid;
@@ -80,6 +81,7 @@
     /* enable 3D transforms */
     transition: 235ms box-shadow, 235ms background-color;
     box-shadow: 0 9px 0 black, 0px 9px 25px rgba(0, 0, 0, 0.7);
+
 }
 
 .key.highlighted {
@@ -133,6 +135,7 @@
 
 .support {
     font-size: 100px;
+    color: green;
 }
 
 .Second {
@@ -161,16 +164,17 @@
     .Animate {
         height: 40px;
         font-size: 40px;
+
     }
 
     .keyboard {
-        scale: 0.4 0.4;
+        scale: 0.4 0.6;
         /* height: 10px; */
         /* background-color: silver; */
         bottom: 100px;
         width: 300px;
-        grid-gap: 10px;
-        transform: rotateX(0deg) translateX(-100%);
+        grid-gap: 40px;
+        transform: rotateX(0deg) translateX(-130%);
     }
 
     #checker {
@@ -189,19 +193,27 @@ nav {
     padding: 0px 200px;
     position: absolute;
     bottom: 1px;
+    color: hsla(var(--sliver), 1);
+
+    font-size:50px ;
 }
 #upperopition{
     height: 50px;
     aspect-ratio: 1/1;
 }
-.Accurate {
+.WPM{
     font-size: 50px;
+}
+.Accurate {
     color: hsla(var(--sliver), 1);
+    position: absolute;
+    top: 25px;
+    right: 50px;
+    font-size: 75px;
+    transform: perspective(3000px) rotateX(0deg) rotateY(-60deg) ;
 }
 
-.WPM {
-    font-size: 50px;
-}
+
 
 .Speed {
     font-size: 20px;
@@ -210,8 +222,13 @@ nav {
 }
 
 .timers {
-    font-size: 50px;
-    height: 100%;
+    font-size: 75px;
+    scale: 1.2;
+    /* height: 100%; */
+    position: absolute;
+    top: 50px;
+    right: 50%;
+    transform: translateX(50%);
     color: hsla(var(--sliver), 1);
     /* opacity: 0; */
 }
@@ -226,14 +243,18 @@ nav {
     display: none;
 }
 
-.volumeRange {
-    /* rotate: 90deg; */
+.ranger{ 
+    position: absolute;
+    top: 50%;
     width: 400px;
-    background-color: hsla(var(--sliver), 1);
-    /* outline: black 20px solid; */
-    accent-color: green;
-    /* opacity: 0; */
-    /* transition: opacity 1000ms; */
+    left: -100px;
+    rotate: 270deg;
+    color: hsla(var(--sliver), 1);
+}
+.volumeRange {
+    width: 400px;
+    /* background-color: hsla(var(--sliver), 1); */
+    accent-color: hsl(var(--sliver));
 }
 
 .volume:hover .volumeRange {
