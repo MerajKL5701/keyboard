@@ -3,8 +3,7 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     /* outline: 1px black solid; */
-    cursor: default;
-  
+    cursor:none;
     transition: background-color 0.5s linear;
 
 }
@@ -42,7 +41,8 @@
     grid-template-rows: repeat(3, 1fr);
 
     /* overflow: hidden; */
-    transform: perspective(5000px) rotateX(60deg) translateX(10%);
+    translate: 10% 0%;
+    transform: perspective(5000px) rotateX(60deg) ;
 }
 
 #checker {
@@ -51,6 +51,8 @@
     top: 35%;
     width: 100%;
     text-align: center;
+    color: hsla(var(--sliver), 1);
+    -webkit-text-stroke: black 2px ;
 }
 
 .error {
@@ -80,7 +82,8 @@
     /* transform-style: preserve-3d; */
     /* enable 3D transforms */
     transition: 235ms box-shadow, 235ms background-color;
-    box-shadow: 0 9px 0 black, 0px 9px 25px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 15px 0 black, 0px 15px 25px rgba(0, 0, 0, 0.7);
+    border: black solid; border-width: 0px 2px 0px 2px;
 
 }
 
@@ -89,7 +92,6 @@
     box-shadow: 0 3px 0 black, 0px 3px 6px rgba(0, 0, 0, 0.7);
     /* opacity: 0; */
 }
-
 .Animate {
     height: 100px;
     aspect-ratio: 1/1;
@@ -99,6 +101,8 @@
     right: 50%;
     transition: 500ms;
     position: absolute;
+    color: hsla(var(--sliver), 1);
+    -webkit-text-stroke: 2px black;
     /* transform: perspective(5000px) rotateY(40deg); */
 }
 
@@ -146,90 +150,47 @@
     translate: 100px 0px;
 }
 
-@media screen and (max-width: 500px) {
-    .key {
-        box-shadow: 5px 5px 5px black, 5px 5px 5px rgba(0, 0, 0, 1);
-    }
 
-    .key.highlighted {
-        box-shadow: 2px 2px 2px black, 2px 2px 2px rgba(0, 0, 0, 1);
-    }
 
-    .timer {
-        font-size: 75px;
-        top: 200px;
-        right: auto;
-    }
 
-    .Animate {
-        height: 40px;
-        font-size: 40px;
-
-    }
-
-    .keyboard {
-        scale: 0.4 0.6;
-        /* height: 10px; */
-        /* background-color: silver; */
-        bottom: 100px;
-        width: 300px;
-        grid-gap: 40px;
-        transform: rotateX(0deg) translateX(-130%);
-    }
-
-    #checker {
-        font-size: 40px;
-        top: 33%;
-    }
-}
-
-nav {
-    background-color: hsla(0, 0%, 0%, 0.8);
-    height: 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 50vh;
-    place-content: center;
-    width: 90vw;
-    padding: 0px 200px;
-    position: absolute;
-    bottom: 1px;
-    color: hsla(var(--sliver), 1);
-
-    font-size:50px ;
-}
 #upperopition{
     height: 50px;
     aspect-ratio: 1/1;
-}
-.WPM{
-    font-size: 50px;
 }
 .Accurate {
     color: hsla(var(--sliver), 1);
     position: absolute;
     top: 25px;
     right: 50px;
-    font-size: 75px;
+    font-size: 100px;
     transform: perspective(3000px) rotateX(0deg) rotateY(-60deg) ;
 }
 
+.WPM{
+    font-size: 100px;
+}
 
 
 .Speed {
-    font-size: 20px;
+    transform: perspective(3000px) rotateX(0deg) rotateY(60deg) ;
+    font-size: 50px;
     /* width: 500px; */
     color: hsla(var(--sliver), 1);
+    position: absolute;
+    top: 50px;
+    left: 50px;
 }
 
 .timers {
-    font-size: 75px;
+    font-size: 60px;
     scale: 1.2;
     /* height: 100%; */
     position: absolute;
-    top: 50px;
+    top: 70px;
     right: 50%;
     transform: translateX(50%);
     color: hsla(var(--sliver), 1);
+    
     /* opacity: 0; */
 }
 
@@ -252,7 +213,7 @@ nav {
     color: hsla(var(--sliver), 1);
 }
 .volumeRange {
-    width: 400px;
+    width: 100%;
     /* background-color: hsla(var(--sliver), 1); */
     accent-color: hsl(var(--sliver));
 }
@@ -260,6 +221,34 @@ nav {
 .volume:hover .volumeRange {
     opacity: 1;
 }
+
+@media screen and (max-width:1280px) {
+    .keyboard{
+        scale: 0.8;
+    }
+    .ranger{
+        top: calc(100% - 100px);
+        left: auto;
+        rotate: 0deg;
+    }
+}
+@media screen and (max-width:960px) {
+    .keyboard{
+        scale: 0.7;
+        translate: 5% 0%;
+    }
+    .Accurate , .WPM{
+        font-size: 75px;
+    }
+    .timers{
+        font-size: 50px;
+    }
+    .Animate , #checker{
+        font-size: 75px;
+    }
+}
+
+
 
 .Q {
     grid-row: 1;

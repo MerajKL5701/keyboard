@@ -1,3 +1,26 @@
+// menu
+// DOM elements 
+// Supporting variables
+// change animate based on width of the screen 
+// this is used for css 
+// pausing the timer 
+// Starting the game 
+//   pressign key 
+// function starting
+//   function for counting the time 
+//   function for clicking the button 
+//   function for key for ctl keys of audio 
+//   function for audio of keypress 
+// animating keypress 
+// checking the input 
+//   function for checking WPM 
+//   checking accuracy 
+// making that jumping text well jumping 
+// words geeneration 
+    // accruatcy for each thingy 
+    //   cross platform checker 
+
+
 // DOM elements 
 const text = document.getElementById("text");
 const audio = document.getElementsByClassName("audio");
@@ -11,9 +34,11 @@ const WPM = document.getElementsByClassName("WPM")[0];
 const volumeRange = document.getElementsByClassName("volumeRange")[0];
 const endscorecs = document.getElementsByClassName("endscorecs")[0];
 const title = document.querySelector("title")
-const variables = Array(26).fill(1);
-const variableSupport = [8,1,3,4,12,2,2,6,6,1,1,4,2,1,7,2,1,6,6,9,3,1,2,1,2,1] 
 const Button = document.getElementsByClassName("key");
+const CtrlKeyacces = document.getElementsByClassName("CtrlKeyacces")
+
+const variables = Array(26).fill(1);
+const variableSupport = [8,1,3,4,13,2,2,6,6,1,1,4,2,1,7,2,1,6,6,9,3,1,2,1,2,1] 
 
 
 // Supporting variables 
@@ -35,8 +60,16 @@ let oldVolumer;
  let AnimateSupport = 0;
 
 
+ let AnimateTranslateX = 300;
+ let AnimateTranslateY = 300;
 
-
+// change animate based on width of the screen 
+if (window.innerWidth <  1300){
+    AnimateTranslateX = 100
+} 
+ if (window.innerWidth < 960){
+    AnimateTranslateY =100
+}
 // this is used for css 
 for (let i = 0; i < Button.length; i++) {
     Button[i].classList.add(Button[i].innerHTML.trim());
@@ -48,7 +81,6 @@ for (let i = 0; i < Button.length; i++) {
       Button[i].classList.add("Third");
     }
   }
-  
 
 // pausing the timer 
 setInterval(() => {
@@ -213,8 +245,11 @@ function SpeedUpdater(){
     }
     let AverageWPMS = SumWPMS / WPMS.length
     let AcutalsWPMS = Math.floor(60 / AverageWPMS)
-    WPM.innerHTML = AcutalsWPMS 
-    title.innerHTML = AcutalsWPMS + "Words per min";
+    if (AcutalsWPMS < 100000000000000 && i > 0){
+
+        WPM.innerHTML = AcutalsWPMS 
+        title.innerHTML = AcutalsWPMS + "Words per min";
+    }
     pureSeconds = 0
     // WPM = Min / Words (convert these seconds into minutes)
   
@@ -229,9 +264,9 @@ function scorer() {
 function animator() {
     const sakura = Array.from({ length: 40 }, (_, i) => i + 40);
     const kakashi = Array.from({ length: 19 }, (_, i) => i + 1);
-    const naruto = Array.from({ length: 300 }, (_, i) => i + 300);
-    const sasuke = Array.from({length: 300}, (_,i) => i - 200)
-    
+    const naruto = Array.from({ length: AnimateTranslateX }, (_, i) => i + 300);
+    const sasuke = Array.from({length: 300}, (_,i) => i - AnimateTranslateY)
+    console.log(sasuke)
     let RandomIndexX = Math.floor(Math.random() * naruto.length);
     let randomIndexZ = Math.floor(Math.floor(RandomIndexX / sakura.length));
     let randomIndexY = Math.floor(Math.random() * sasuke.length);
@@ -265,14 +300,13 @@ function animator() {
     function textGenerator() {
         let letter = "abcdefghijklmnopqrstuvwxyz"
         let Alphabet = []
-        let index = Math.floor((Math.random() * 6))  + 3
+        let index = Math.floor((Math.random() * 4))  + 3
         for (loop = 0; loop < letter.length ; loop++ ){
       
           for (loop2 = 0; loop2 < variables[loop] + variableSupport[loop];loop2++){
             Alphabet.push(letter.charAt(loop))
           }
         }
-        console.log("alphabet " + Alphabet + " variables " + variables)
           // const innerHTML =/ checker.innerHTML + thisSupport.charAt(thisSupport2)
           for (loop = 0;loop < index; loop++){
       
@@ -424,4 +458,20 @@ function animator() {
             break;
         }
       }
-      
+
+    //   cross platform checker 
+      if (navigator.platform.includes('Win') || navigator.platform.includes('Win')) {
+        // The user is on a Windows platform, where the Ctrl key is commonly available
+        CtrlKeyacces[0].style.height = "auto"
+        CtrlKeyacces[0].style.opacity = "1"
+        CtrlKeyacces[1].style.height = "auto"
+        CtrlKeyacces[1].style.opacity = "1"
+        console.log('Ctrl key is support');
+    } else {
+          CtrlKeyacces[0].style.height = "0px"
+          CtrlKeyacces[0].style.opacity = "0"
+          CtrlKeyacces[1].style.height = "0px"
+          CtrlKeyacces[1].style.opacity = "0px"
+        // The user is on a platform where the availability of the Ctrl key may vary
+        console.log('Ctrl key is maybe not support');
+      }
