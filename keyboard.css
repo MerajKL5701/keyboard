@@ -42,7 +42,7 @@
     grid-template-rows: repeat(3, 1fr);
 
     /* overflow: hidden; */
-    transform: perspective(5000px) rotateX(50deg) translateX(10%);
+    transform: perspective(5000px) rotateX(60deg) translateX(10%);
 }
 
 #checker {
